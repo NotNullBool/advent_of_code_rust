@@ -39,6 +39,9 @@ fn input_file_to_elves_total_calories(file_name: &str) -> Result<Vec<i32>, Error
             }
             Ok(totals)
         }
-        Err(e) => Err(e), //file doesnt exist in current directory
+        Err(e) => {
+            println!("please put input.txt file in executable directory");
+            Err(e)
+        } //file doesnt exist in current directory
     }
 }
