@@ -12,7 +12,7 @@ fn main() {
 
     println!(
         "{:#?} is the combined top 3 elves calories.",
-        total_elf_calories[0..=2].into_iter().sum::<i32>()
+        total_elf_calories[0..=2].iter().sum::<i32>()
     );
 }
 
@@ -25,7 +25,7 @@ fn input_file_to_elves_total_calories(file_name: &str) -> Result<Vec<i32>, Error
             let mut index = 0;
             for line in input.lines() {
                 //if empty line means the next elf
-                if line == "" {
+                if line.is_empty() {
                     index += 1;
                     continue;
                 } else {
