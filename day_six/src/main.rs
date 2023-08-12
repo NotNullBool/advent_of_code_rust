@@ -14,15 +14,15 @@ fn first_marker_detect(input: String) -> usize {
     'main: for (main_index, four_chars) in four_at_a_time.enumerate() {
         for (i, char1) in four_chars.iter().enumerate() {
             for (j, char2) in four_chars.iter().enumerate() {
-                if (i == j) & (i < four_chars.len()) {
+                if i == j {
                     continue;
                 }
                 if char1 == char2 {
                     continue 'main;
                 }
-                if (i == four_chars.len() - 1) && (j == four_chars.len() - 1) {
-                    return main_index + 4;
-                }
+            }
+            if i == four_chars.len() - 1 {
+                return main_index + 4;
             }
         }
     }
